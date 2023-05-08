@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class FootstepsSound : MonoBehaviour
 {
-    public AudioClip[] foostepsOnGrass;
-
-    public string material;
+    [SerializeField] private AudioClip[] foostepsOnGrass;
+    [SerializeField] private string material;
 
     void PlayFoostepSound()
     {
