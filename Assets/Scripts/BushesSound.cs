@@ -6,7 +6,7 @@ public class BushesSound : MonoBehaviour
 {
     [SerializeField] private AudioClip[] bushesClips;
 
-    void PlayBushesAudio()
+    public void PlayBushesAudio()
     {
         AudioSource aSource = GetComponent<AudioSource>();
         aSource.volume = Random.Range(0.9f, 1.0f);

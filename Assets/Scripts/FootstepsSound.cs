@@ -5,9 +5,10 @@ using UnityEngine;
 public class FootstepsSound : MonoBehaviour
 {
     [SerializeField] private AudioClip[] foostepsOnGrass;
+    [SerializeField] private AudioClip[] foostepsOnStone;
     [SerializeField] private string material;
 
-    void PlayFoostepSound()
+    public void PlayFoostepSound()
     {
         AudioSource aSource = GetComponent<AudioSource>();
         aSource.volume = Random.Range(0.9f, 1.0f);
@@ -21,6 +22,11 @@ public class FootstepsSound : MonoBehaviour
                     aSource.PlayOneShot(foostepsOnGrass[Random.Range(0, foostepsOnGrass.Length)]);
                 break;
 
+            case "Stone":
+                if (foostepsOnStone.Length > 0)
+                    aSource.PlayOneShot(foostepsOnStone[Random.Range(0, foostepsOnStone.Length)]);
+                break;
+
             default:
                 break;
         }
@@ -30,6 +36,7 @@ public class FootstepsSound : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
+            case "Stone":
             case "Grass":
                 material = collision.gameObject.tag;
                 break;
