@@ -7,6 +7,7 @@ public class FootstepsSound : MonoBehaviour
     [SerializeField] private AudioClip[] foostepsOnGrass;
     [SerializeField] private AudioClip[] foostepsOnStone;
     [SerializeField] private AudioClip[] foostepsOnWood;
+    [SerializeField] private AudioClip[] foostepsOnMetal;
     [SerializeField] private string material;
 
     public void PlayFoostepSound()
@@ -33,6 +34,11 @@ public class FootstepsSound : MonoBehaviour
                     aSource.PlayOneShot(foostepsOnWood[Random.Range(0, foostepsOnWood.Length)]);
                 break;
 
+            case "Metal":
+                if (foostepsOnMetal.Length > 0)
+                    aSource.PlayOneShot(foostepsOnMetal[Random.Range(0, foostepsOnMetal.Length)]);
+                break;
+
             default:
                 break;
         }
@@ -45,6 +51,7 @@ public class FootstepsSound : MonoBehaviour
             case "Grass":
             case "Stone":
             case "Wood":
+            case "Metal":
                 material = collision.gameObject.tag;
                 break;
 
